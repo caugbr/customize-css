@@ -1,0 +1,389 @@
+
+a.save-css,
+a.save-css:hover,
+a.edit-page,
+a.edit-page:hover {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #e9e9e9;
+    color: #144dbd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-decoration: none;
+}
+a.save-css,
+a.save-css:hover {
+    right: 54px;
+    display: none;
+}
+.editing-page.css-modified a.save-css {
+    display: flex;
+}
+.editing-page a.edit-page {
+    background-color: #144dbd;
+    color: #e9e9e9;
+}
+
+
+.editing-page .editing-element {
+    position: relative;
+    outline: 1px dashed #0073aa;
+    transition: all 0.3s ease;
+    cursor: crosshair;
+}
+
+
+.editing-page .editing-image {
+    outline: 1px dashed #0073aa;
+    cursor: crosshair;
+    transition: opacity 0.3s ease;
+}
+.media-modal-content {
+    color: #646970;
+}
+
+
+.editing-page .editing-image:hover {
+    opacity: 0.7;
+}
+
+
+.editing-page .editing-element::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 115, 170, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+.editing-page .editing-element:hover::before {
+    opacity: 1;
+}
+
+
+.editing-page .editing-element::after {
+    content: "✎ " var(--edit-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #ccc;
+    text-shadow: 0px 0px 4px rgba(0,0,0,0.6);
+    padding: 2px 5px;
+    border-radius: 3px;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+
+.editing-page .editing-element:hover::after {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 20px 0;
+    transition: opacity 0.3s ease 0s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+body.open-popup .popup-overlay {
+    transition: opacity 0.3s ease 0s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+.popup-window {
+    width: 800px;
+    max-width: 90%;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+
+}
+
+
+body.open-popup {
+    overflow: hidden;
+}
+
+
+body.open-popup .popup-window {
+    opacity: 1;
+    color: #333;
+    position: relative;
+}
+
+
+.popup-close,
+.popup-close:active {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: auto;
+    height: auto;
+    padding: 4px;
+    color: #8e2323;
+    text-decoration: none !important;
+}
+
+
+.popup-title {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    background-color: #f9f9f9;
+    border-radius: 10px 10px 0 0;
+
+
+
+}
+
+
+.popup-stage {
+    padding: 20px;
+    font-size: 16px;
+}
+
+
+.input.measure {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    max-width: 500px;
+}
+
+
+.input.measure label {
+    flex-grow: 3;
+    flex-shrink: 3;
+}
+
+.input.measure select {
+    width: auto !important;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+
+
+
+
+.input.color {
+    max-width: 500px;
+    position: relative;
+}
+
+
+.input.color input[type="color"],
+.input.color label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.input.color label {
+
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 4px;
+    min-height: 1.9em;
+
+    background-color: transparent;
+}
+
+
+.input.color input[type="color"] {
+    min-height: 1.9em;
+
+    opacity: 0;
+
+}
+
+
+.input.color .clear-input {
+    position: absolute;
+    top: 0;
+    right: -26px;
+    width: 22px;
+    height: 22px;
+}
+.input.color .clear-input {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    color: #b63133;
+    line-height: 1;
+    opacity: 0.2;
+    transition: opacity 200ms ease-in 0s;
+}
+.input.color input[type="color"]:hover + .clear-input,
+.input.color .clear-input:hover {
+    opacity: 1;
+}
+.input.color .clear-input .dashicons {
+    font-size: 1em;
+    width: auto;
+    height: auto;
+    line-height: 1;
+}
+
+
+form[data-selector] h3 {
+    margin-top: 0;
+}
+
+form[data-selector] .formline {
+    float: left;
+    width: 46%;
+}
+
+form[data-selector] .formline:nth-of-type(odd) {
+    margin-right: 5%;
+}
+
+
+
+form[data-selector] .buttons {
+    clear: left;
+    margin: 0 auto;
+    padding-top: 1.25rem;
+    text-align: right;
+}
+
+form[data-selector] .buttons button {
+    background: #f6f7f7;
+    border-color: #8c8f94;
+    border-color: #0a4b78;
+    color: #0a4b78;
+    text-decoration: none;
+    text-shadow: none;
+    min-height: 32px;
+    line-height: 2.3;
+    padding: 0 12px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+form[data-selector] .buttons button.primary {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+}
+
+
+
+.formline select + .clear-input,
+.formline textarea + .clear-input,
+.formline input:not([type="hidden"]) + .clear-input {
+    margin-left: 0.25rem;
+}
+.formline .clear-input.multi {
+    margin-left: 0.06rem;
+    margin-top: 0.35rem;
+}
+.formline .clear-input {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    color: #b63133;
+    line-height: 1;
+    opacity: 0.2;
+    transition: opacity 200ms ease-in 0s;
+}
+.formline select:hover + .clear-input,
+.formline textarea:hover + .clear-input,
+.formline input:not([type="hidden"]):hover + .clear-input,
+.formline .clear-input:hover {
+    opacity: 1;
+}
+.formline .clear-input .dashicons {
+    font-size: 1em;
+    width: auto;
+    height: auto;
+    line-height: 1;
+}
+.formline .clear-input.clear-value {
+    margin-top: 0.75rem;
+}
+.formline select[readonly] + .clear-input {
+    display: none;
+}
+
+
+.user-msg {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    display: inline-block;
+    background-color: rgb(19, 80, 201);
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease 0s;
+    transform: translateX(110%);
+}
+.user-msg .close-msg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    padding: 4px;
+    color: #ffffff;
+    text-decoration: none !important;
+}
+.user-msg .user-msg-message {
+    display: flex;
+    align-items: center;
+    padding: 1.4em 0.5em 0.8em;
+    min-height: 50px;
+}
+body.show-message .user-msg {
+    transform: translateX(0);
+}

@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+}
+
+.cols {
+    display: flex;
+    flex-direction: row;
+}
+
+.cols .col-left {
+    flex-grow: 5;
+    flex-shrink: 5;
+}
+
+.cols .col-left input {
+    width: 100%;
+    max-height: 20px;
+}
+
+.cols .col-right {
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: right;
+    padding-left: 1rem;
+}
+
+.rule-name {
+    margin: 0.5rem 0;
+    max-width: 750px;
+}
+
+.formline select + .clear-input,
+.formline textarea + .clear-input,
+.formline input:not([type="hidden"]) + .clear-input {
+    margin-left: 0.25rem;
+}
+.formline .clear-input.multi {
+    margin-left: 0.06rem;
+    margin-top: 0.35rem;
+}
+.formline .clear-input {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    color: #b63133;
+    line-height: 1;
+    opacity: 0.2;
+    transition: opacity 200ms ease-in 0s;
+}
+.formline select:hover + .clear-input,
+.formline textarea:hover + .clear-input,
+.formline input:not([type="hidden"]):hover + .clear-input,
+.formline .clear-input:hover {
+    opacity: 1;
+}
+.formline .clear-input .dashicons {
+    font-size: 1em;
+    width: auto;
+    height: auto;
+    line-height: 1;
+}
+.formline .clear-input.clear-value {
+    margin-top: 0.75rem;
+}
+.formline select[readonly] + .clear-input {
+    display: none;
+}
+
+.formline .check-list label {
+    display: block;
+    padding: 0.4rem 0;
+}
+
+
+/* tabs */
+
+.tabs {
+    margin: 1rem auto 0.25rem;
+}
+.tabs .tab-links {
+    border-bottom: 1px solid #ccc;
+}
+.tab-links a.tab {
+    vertical-align: bottom;
+    color: #333;
+    background-color: #bfbfbf;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    transform: translateY(1px);
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-width: 0;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.tabs .tab-stage {
+    padding: 0.5rem 0;
+}
+.tabs .tab-content {
+    display: none;
+}
+.tabs .tab-content img {
+    margin: auto;
+}
+
+.tabs[data-tab="1"] .tab-links a.tab[data-tab="1"],
+.tabs[data-tab="2"] .tab-links a.tab[data-tab="2"],
+.tabs[data-tab="3"] .tab-links a.tab[data-tab="3"],
+.tabs[data-tab="4"] .tab-links a.tab[data-tab="4"],
+.tabs[data-tab="5"] .tab-links a.tab[data-tab="5"],
+.tabs[data-tab="6"] .tab-links a.tab[data-tab="6"] {
+    background-color: #efefef;
+    border-bottom-color: #efefef;
+    font-weight: bold;
+    cursor: default;
+    padding-bottom: 0.5rem;
+}
+.tabs[data-tab="1"] .tab-stage .tab-content[data-tab="1"],
+.tabs[data-tab="2"] .tab-stage .tab-content[data-tab="2"],
+.tabs[data-tab="3"] .tab-stage .tab-content[data-tab="3"],
+.tabs[data-tab="4"] .tab-stage .tab-content[data-tab="4"],
+.tabs[data-tab="5"] .tab-stage .tab-content[data-tab="5"],
+.tabs[data-tab="6"] .tab-stage .tab-content[data-tab="6"] {
+    display: block;
+}
+
+
+.formline {
+    max-width: 750px !important;
+}
+.formline .input textarea, 
+.formline .input select, 
+.formline .input input:not([type="button"],[type="reset"],[type="image"],[type="radio"],[type="checkbox"],[type="color"]), 
+.formline .input-number {
+    max-width: 90% !important;
+}
+.add-image,
+.add-page-area,
+p.submit {
+    text-align: right !important;
+    display: block !important;
+}
+/* .add-page-area button {
+    margin: auto 8% 0 auto !important;
+} */
+
+textarea#areas {
+    height: 28em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+.prev-next {
+    margin: 1rem 0;
+    max-width: 750px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.images-wrapper .image-replacements:empty:before,
+.images-wrapper:empty:before,
+.areas-wrapper .editable-areas:empty:before,
+.areas-wrapper:empty:before {
+    content: attr(data-empty);
+}
+.image-replacements,
+.editable-areas {
+    margin: 1rem 0;
+    max-width: 750px;
+}
+
+.image-replacements .ri-wrapper,
+.editable-areas .area {
+    background-color: #EDEDED;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+}
+
+.image-replacements .ri-wrapper a.edit,
+.image-replacements .ri-wrapper a.remove,
+.editable-areas .area a.edit,
+.editable-areas .area a.remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: #b63133;
+    color: #efefef;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.image-replacements .ri-wrapper a.edit,
+.editable-areas .area a.edit {
+    right: 34px;
+    background-color: #2753ba;
+}
+.image-replacements .dashicons,
+.editable-areas .dashicons {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.image-replacements .ri-wrapper .cols {
+    justify-content: center;
+}
+
+.image-replacements .ri-wrapper div {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+.editable-areas .area div {
+    margin: 0.25rem auto;
+}
+.ri-wrapper div.rpl:empty:before {
+    content: '?';
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+}
+
+.image-replacements .ri-wrapper img {
+    width: 120px;
+    height: auto;
+}
+
+.image-replacements .ri-wrapper .gap {
+    width: 4rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    color: #2450b7;
+}
+
+.review-rule {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem;
+    white-space: pre;
+    max-width: 750px;
+}
+
+.add-section,
+.add .images-section,
+.add .areas-section {
+    display: none;
+}
+
+.add .add-section {
+    display: block;
+}
+
+
+.wrap .error-messages .notice-info,
+.wrap .error-messages .error {
+    max-width: 750px;
+    margin: 0.5rem 0 0.5rem;
+    padding: 0.5rem;
+}
