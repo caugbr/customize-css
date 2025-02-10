@@ -23,9 +23,9 @@ class Admin_Table extends WP_List_Table {
     public function get_columns() {
         return [
             // 'cb' => '<input type="checkbox" />',
-            'rule_name' => 'Nome da Regra',
-            'created_at' => 'Criado em',
-            'actions' => 'Ações',
+            'rule_name' => __("Rule name", "ccss"),
+            'created_at' => __("Created at", "ccss"),
+            'actions' => __("Actions", "ccss"),
         ];
     }
 
@@ -43,8 +43,8 @@ class Admin_Table extends WP_List_Table {
      * Preenche os dados da tabela.
      */
     public function prepare_items() {
-        $per_page = 10; // Número de itens por página
-        $data     = $this->get_table_data();
+        $per_page = 10;
+        $data = $this->get_table_data();
 
         $columns = $this->get_columns();
         $hidden = array();
@@ -53,8 +53,8 @@ class Admin_Table extends WP_List_Table {
         $this->_column_headers = array($columns, $hidden, $sortable, $primary);
 
         // Ordenação
-        $orderby = $_GET['orderby'] ?? 'rule_name'; // Coluna para ordenar
-        $order   = $_GET['order'] ?? 'asc';        // Direção
+        $orderby = $_GET['orderby'] ?? 'rule_name';
+        $order = $_GET['order'] ?? 'asc';
         usort($data, function ($a, $b) use($orderby, $order) {
             $result  = strcmp($a[$orderby], $b[$orderby]);
             return $order === 'asc' ? $result : -$result;
@@ -62,8 +62,8 @@ class Admin_Table extends WP_List_Table {
 
         // Paginação
         $current_page = $this->get_pagenum();
-        $total_items  = count($data);
-        $this->items  = array_slice($data, ($current_page - 1) * $per_page, $per_page);
+        $total_items = count($data);
+        $this->items = array_slice($data, ($current_page - 1) * $per_page, $per_page);
         
         $args = [
             'total_items' => $total_items,
@@ -99,9 +99,12 @@ class Admin_Table extends WP_List_Table {
         $delete_url = admin_url("admin.php?page=ccss-rules&action=remove&rule={$id}&_wpnonce={$nonce}");
 
         return sprintf(
-            '<a href="%s">Editar</a> | <a href="%s" onclick="return confirm(\'Tem certeza que deseja remover esta regra?\');">Remover</a>',
+            '<a href="%s">%s</a> | <a href="%s" onclick="return confirm(\'%s\');">%s</a>',
             esc_url($edit_url),
-            esc_url($delete_url)
+            __("Edit", "ccss"),
+            esc_url($delete_url),
+            __("There is no undo. Are you sure?", "ccss"),
+            __("Delete", "ccss")
         );
     }
 

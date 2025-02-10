@@ -48,6 +48,8 @@ trait CcssFront {
     }
     
     public function add_front_assets($rule) {
+        include_once CCSS_PATH . "frontend-media.php";
+        restrict_frontend_media();
         wp_enqueue_media();
         wp_enqueue_style('dashicons');
         wp_enqueue_style('ccss-css', CCSS_URL . 'assets/css/ccss-front.css', [], $this->version);

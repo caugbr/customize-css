@@ -9,8 +9,8 @@ trait CcssAdmin {
      */
     public function add_admin_page() {
         add_menu_page(
-            __('Customize CSS', 'custom_css'),
-            __('Customize CSS', 'custom_css'),
+            __('Customize CSS', 'ccss'),
+            __('Customize CSS', 'ccss'),
             'manage_options',
             'ccss-rules',
             [$this, 'admin_page_list'],
@@ -18,20 +18,37 @@ trait CcssAdmin {
         );
         add_submenu_page(
             'ccss-rules',
-            __('Customization rules', 'custom_css'),
-            __('Customization rules', 'custom_css'),
+            __('Customization rules', 'ccss'),
+            __('Customization rules', 'ccss'),
             'manage_options',
             'ccss-rules',
             [$this, 'admin_page_list']
         );
         add_submenu_page(
             'ccss-rules',
-            __('Add custom rule', 'custom_css'),
-            __('Add custom rule', 'custom_css'),
+            __('Add custom rule', 'ccss'),
+            __('Add custom rule', 'ccss'),
             'manage_options',
             'ccss-add-rule',
             [$this, 'admin_page']
         );
+        add_submenu_page(
+            'ccss-rules',
+            __('Customization Settings', 'ccss'),
+            __('Settings', 'ccss'),
+            'manage_options',
+            'ccss-config',
+            [$this, 'admin_page_config']
+        );
+    }
+
+    /**
+     * Admin page - rules list
+     *
+     * @return void
+     */
+    public function admin_page_config() {
+        print "Oi";
     }
 
     /**
@@ -49,9 +66,9 @@ trait CcssAdmin {
                 wp_die(__("Invalid nonce. Unauthorized action.", "ccss"));
             }
             if ($this->delete_rule($_GET['rule'])) {
-                $msg = __('Customization rule successfully removed!', 'custom_css');
+                $msg = __('Customization rule successfully removed!', 'ccss');
             } else {
-                $msg = __('The rule could not be removed', 'custom_css');
+                $msg = __('The rule could not be removed', 'ccss');
             }
             ?>
             <script defer>
@@ -111,11 +128,11 @@ trait CcssAdmin {
             $rule = json_decode(stripslashes($_POST['fullrule']), true);
             if (isset($_POST['ccss_save'])) {
                 $this->add_rule($_POST['rule_name'], $rule);
-                $msg = __('Customization rule successfully added!', 'custom_css');
+                $msg = __('Customization rule successfully added!', 'ccss');
             }
             if (isset($_POST['ccss_update'])) {
                 $this->update_rule($_POST['rule_id'], $rule, $_POST['rule_name']);
-                $msg = __('Customization rule successfully updated!', 'custom_css');
+                $msg = __('Customization rule successfully updated!', 'ccss');
             }
         }
         if (!empty($_GET['rule'])) {
@@ -142,9 +159,9 @@ trait CcssAdmin {
         <div class="wrap">
             <h1 class="wp-heading-inline"><?php 
                 if (!empty($_GET['rule']))  {
-                    _e('Update customization rule', 'custom_css');
+                    _e('Update customization rule', 'ccss');
                 } else {
-                    _e('Create new customization rule', 'custom_css');
+                    _e('Create new customization rule', 'ccss');
                 }
             ?></h1>
             <?php if (!empty($msg)) { print "<div class='notice updated'><p>{$msg}</p></div>"; } ?>
@@ -172,7 +189,7 @@ trait CcssAdmin {
                     </div>
                     <div class="tab-stage">
                         <div class="tab-content" data-tab="1">
-                            <h3><?php _e('Post types', 'custom_css'); ?></h3>
+                            <h3><?php _e('Post types', 'ccss'); ?></h3>
                             <?php
                             $f_inputs->input_line("checkbox", [
                                 "id" => "post_types",
@@ -209,7 +226,7 @@ trait CcssAdmin {
                             ], __("Custom field value", 'ccss'));
 
                             ?>
-                            <h3><?php _e('Taxonomies', 'custom_css'); ?></h3>
+                            <h3><?php _e('Taxonomies', 'ccss'); ?></h3>
                             <?php
                             foreach ($taxs as $name => $info) {
                                 $vname = $this->php_var_name($name);
@@ -233,7 +250,7 @@ trait CcssAdmin {
                                 "description" => __("The relation between multiple taxonomy queries", 'ccss'),
                             ], __("Tax queries relation", 'ccss'));
                             ?>
-                            <h3><?php _e('Locations', 'custom_css'); ?></h3>
+                            <h3><?php _e('Locations', 'ccss'); ?></h3>
                             <?php
 
                             $f_inputs->input_line("checkbox", [
@@ -252,7 +269,7 @@ trait CcssAdmin {
                             ?>
                         </div>
                         <div class="tab-content" data-tab="2">
-                            <h3><?php _e('Users that can edit', 'custom_css'); ?></h3>
+                            <h3><?php _e('Users that can edit', 'ccss'); ?></h3>
                             <?php
                             $f_inputs->input_line("checkbox", [
                                 "id" => "roles",
@@ -293,18 +310,18 @@ trait CcssAdmin {
                         </div>
                         <div class="tab-content" data-tab="3">
                             <div class="areas-section">
-                                <h3><?php _e('Editable page areas', 'custom_css'); ?></h3>
-                                <div class="areas-wrapper" data-empty="<?php _e('No areas yet', 'custom_css'); ?>"></div>
+                                <h3><?php _e('Editable page areas', 'ccss'); ?></h3>
+                                <div class="areas-wrapper" data-empty="<?php _e('No areas yet', 'ccss'); ?>"></div>
                                 <div class="add-page-area formline">
                                     <button type="button" class="goto-add-area button button-secondary">
-                                        <?php _e('Add area', 'custom_css'); ?>
+                                        <?php _e('Add area', 'ccss'); ?>
                                     </button>
                                 </div>
                                 <input type="hidden" id="areas" value='<?php print $areas; ?>'>
                                 <?php $this->prev_next(); ?>
                             </div>
                             <div class="add-section">
-                                <h3><?php _e('Add editable area', 'custom_css'); ?></h3>
+                                <h3><?php _e('Add editable area', 'ccss'); ?></h3>
                                 <?php
                                 $f_inputs->input_line("text", [
                                     "id" => "page_area",
@@ -324,33 +341,33 @@ trait CcssAdmin {
                                 ?>
                                 <div class="add-page-area formline">
                                     <button type="button" class="cancel-add-area button button-secondary">
-                                        <?php _e('Cancel', 'custom_css'); ?>
+                                        <?php _e('Cancel', 'ccss'); ?>
                                     </button>
                                     <button type="button" class="add-area button button-secondary">
-                                        <?php _e('Add editable area', 'custom_css'); ?>
+                                        <?php _e('Add editable area', 'ccss'); ?>
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-content" data-tab="4">
                             <div class="images-section">
-                                <h3><?php _e('Image replacements', 'custom_css'); ?></h3>
-                                <div class="images-wrapper" data-empty="<?php _e('No replacements yet', 'custom_css'); ?>"></div>
+                                <h3><?php _e('Image replacements', 'ccss'); ?></h3>
+                                <div class="images-wrapper" data-empty="<?php _e('No replacements yet', 'ccss'); ?>"></div>
                                 <div class="add-image formline">
                                     <button type="button" class="goto-add-image button button-secondary">
-                                        <?php _e('Add replacement', 'custom_css'); ?>
+                                        <?php _e('Add replacement', 'ccss'); ?>
                                     </button>
                                 </div>
                                 <input type="hidden" id="images" value='<?php print $images; ?>'>
                                 <?php $this->prev_next(); ?>
                             </div>
                             <div class="add-section">
-                                <h3><?php _e('Add image replacement', 'custom_css'); ?></h3>
+                                <h3><?php _e('Add image replacement', 'ccss'); ?></h3>
                                 <?php
                                 $f_inputs->input_line("text", [
                                     "id" => "image_url",
                                     "description" => sprintf(
-                                        __("Insert a URL or part of some image URL - %sselect from site images%s", 'ccss'),
+                                        __("Insert some image URL - %sselect from site images%s", 'ccss'),
                                         '<a href=\'#\' class=\'open-image-layer\' data-img=\'original\'>',
                                         '</a>'
                                     )
@@ -358,7 +375,7 @@ trait CcssAdmin {
                                 $f_inputs->input_line("text", [
                                     "id" => "image_replacement",
                                     "description" => sprintf(
-                                        __("Define the image that will replace the original one (full URL) - %sselect from site images%s", 'ccss'),
+                                        __("Define the image that will replace the original one - %sselect from site images%s", 'ccss'),
                                         '<a href=\'#\' class=\'open-image-layer\' data-img=\'replacement\'>',
                                         '</a>'
                                     )
@@ -366,30 +383,30 @@ trait CcssAdmin {
                                 ?>
                                 <div class="add-image formline">
                                     <button type="button" class="cancel-add-image button button-secondary">
-                                        <?php _e('Cancel', 'custom_css'); ?>
+                                        <?php _e('Cancel', 'ccss'); ?>
                                     </button>
                                     <button type="button" class="add-image-replacement button button-secondary">
-                                        <?php _e('Add image replacement', 'custom_css'); ?>
+                                        <?php _e('Add image replacement', 'ccss'); ?>
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-content" data-tab="5">
-                            <h3><?php _e('Review and generate rule', 'custom_css'); ?></h3>
+                            <h3><?php _e('Review and generate rule', 'ccss'); ?></h3>
                             <div class="review-rule"></div>
                             <div class="error-messages"></div>
                             <div class="cols rule-name">
                                 <div class="col-left">
-                                    <input type="text" name="rule_name" id="rule_name" placeholder="<?php _e('Rule name', 'custom_css'); ?>" value="<?php print $rule['rule_name'] ?? ''; ?>">
+                                    <input type="text" name="rule_name" id="rule_name" placeholder="<?php _e('Rule name', 'ccss'); ?>" value="<?php print $rule['rule_name'] ?? ''; ?>">
                                     <input type="hidden" name="fullrule" id="fullrule">
                                 </div>
                                 <div class="col-right">
                                     <?php 
                                     if (!empty($_GET['rule']))  {
-                                        submit_button(__('Update customization rule', 'custom_css'), 'primary', 'ccss_update', false);
+                                        submit_button(__('Update customization rule', 'ccss'), 'primary', 'ccss_update', false);
                                         print "\n<input type='hidden' value='{$_GET['rule']}' name='rule_id'>\n";
                                     } else {
-                                        submit_button(__('Create customization rule', 'custom_css'), 'primary', 'ccss_save', false); 
+                                        submit_button(__('Create customization rule', 'ccss'), 'primary', 'ccss_save', false); 
                                     }
                                     ?>
                                 </div>

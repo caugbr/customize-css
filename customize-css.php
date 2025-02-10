@@ -96,6 +96,9 @@ class CustomizeCSS {
         add_action('wp_enqueue_scripts', [$this, 'include_css']);
         add_action('wp_ajax_save_rule', [$this, 'save_rule']);
         register_activation_hook(__FILE__, [$this, 'create_table']);
+        add_action('init', function() {
+            load_plugin_textdomain('ccss', false, dirname(plugin_basename(__FILE__)) . '/langs'); 
+        });
     }
 
     /**

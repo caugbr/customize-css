@@ -115,11 +115,27 @@ class CcssFront {
                     button: { text: ccssStr.selectImage },
                     multiple: false
                 });
+
+                mediaUploader.on('open', () => {
+                    setTimeout(() => {
+                        let uploadTab = document.querySelector('#menu-item-upload');
+                        if (uploadTab) {
+                            uploadTab.remove();
+                        }
+                        const removeLinks = () => {
+                            const links = document.querySelectorAll('.edit-attachment, .delete-attachment');
+                            links.forEach(el => el.remove());
+                        };
+                        let observer = new MutationObserver(removeLinks);
+                        observer.observe(document.body, { childList: true, subtree: true });
+                        removeLinks();
+                    }, 100);
+                });
+
                 mediaUploader.on('select', () => handleImageSelect(img));
                 mediaUploader.open();
             };
             const handleImageSelect = img => {
-                // console.log('img2', img)
                 const attachment = mediaUploader.state().get('selection').first().toJSON();
                 if (img.srcset) {
                     img.removeAttribute('srcset');
@@ -127,13 +143,12 @@ class CcssFront {
                 if (img.sizes) {
                     img.removeAttribute('sizes');
                 }
-                // console.log('findIndex all', this.images)
-                const ind = this.images.findIndex(e => e.image == img.src);
-                console.log('findIndex ind', ind)
+                const ind = img.dataset.index || this.images.findIndex(e => e.image == img.src);
                 const nimg = this.images[ind];
                 nimg.replacement = attachment.url;
                 this.images[ind] = nimg;
                 img.src = attachment.url;
+                img.dataset.index = ind;
                 this.showSaveButton();
             };
             openMediaUploader(img);
