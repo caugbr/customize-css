@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Customize CSS\n"
 "POT-Creation-Date: 2025-02-11 21:38-0300\n"
-"PO-Revision-Date: 2025-02-12 07:59-0300\n"
+"PO-Revision-Date: 2025-02-12 08:08-0300\n"
 "Last-Translator: \n"
 "Language-Team: Cau Guanabara\n"
 "Language: pt_BR\n"
@@ -16,6 +16,10 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: .git\n"
+
+#: customize-css.php:4
+msgid "Customize CSS is a plugin that allows specific users to edit layout details in predefined areas of your site, directly from the frontend."
+msgstr "Customize CSS é um plugin que permite a usuários específicos editar detalhes do layout em áreas predefinidas do site, diretamente do frontend."
 
 #: admin-table.php:26 traits/admin.php:525
 msgid "Rule name"
@@ -53,8 +57,7 @@ msgstr "Descrição"
 msgid "Properties"
 msgstr "Propriedades"
 
-#: customize-css.php:125 traits/admin.php:317 traits/admin.php:326
-#: traits/admin.php:327 traits/admin.php:406
+#: customize-css.php:125 traits/admin.php:317 traits/admin.php:326 traits/admin.php:327 traits/admin.php:406
 msgid "Post types"
 msgstr "Tipos de post"
 
@@ -144,14 +147,11 @@ msgstr "Não há conteúdos (tipos de post, páginas, taxonomias) selecionados"
 
 #: customize-css.php:147
 msgid "The is no place (lists, single, sub pages) defined to show"
-msgstr ""
-"Nenhum local selecionado (listas, publicações, subpáginas) para a exibição"
+msgstr "Nenhum local selecionado (listas, publicações, subpáginas) para a exibição"
 
 #: customize-css.php:148
 msgid "There are no users (roles, custom field, specific users) set to edit"
-msgstr ""
-"Não há usuários (níveis, campos personalizados, usuários específicos) "
-"selecionados para editar"
+msgstr "Não há usuários (níveis, campos personalizados, usuários específicos) selecionados para editar"
 
 #: customize-css.php:149
 msgid "Give a name for this rule"
@@ -238,12 +238,8 @@ msgid "Buttons"
 msgstr "Botões"
 
 #: traits/admin.php:96
-msgid ""
-"You can set the position of our buttons to prevent interference with your "
-"site's layout."
-msgstr ""
-"Você pode definir a posição dos nossos botões para se ajustar ao layout do "
-"seu site."
+msgid "You can set the position of our buttons to prevent interference with your site's layout."
+msgstr "Você pode definir a posição dos nossos botões para se ajustar ao layout do seu site."
 
 #: traits/admin.php:100
 msgid "Edit Button Position"
@@ -267,9 +263,7 @@ msgstr "Seleção de imagens"
 
 #: traits/admin.php:112
 msgid "You can define rules for how the Image Frame behaves on the frontend."
-msgstr ""
-"Você pode definir como a janela de seleção de imagens se comporta no front-"
-"end."
+msgstr "Você pode definir como a janela de seleção de imagens se comporta no front-end."
 
 #: traits/admin.php:119
 msgid "All available images"
@@ -281,8 +275,7 @@ msgstr "Só imagens enviadas pelo editor"
 
 #: traits/admin.php:122
 msgid "Set the filter for which images the editor can view in the frontend"
-msgstr ""
-"Defina o filtro para selecionar as imagens que serão exibidas no front-end"
+msgstr "Defina o filtro para selecionar as imagens que serão exibidas no front-end"
 
 #: traits/admin.php:123
 msgid "Image Filter"
@@ -474,8 +467,7 @@ msgid "Add editable area"
 msgstr "Adicionar área editável"
 
 #: traits/admin.php:453
-msgid ""
-"Insert a CSS selector that gets the area of the page that will be editable"
+msgid "Insert a CSS selector that gets the area of the page that will be editable"
 msgstr "Digite um seletor CSS para pegar a área da página que será editável"
 
 #: traits/admin.php:454
@@ -525,12 +517,8 @@ msgstr "URL original"
 
 #: traits/admin.php:503
 #, php-format
-msgid ""
-"Define the image that will replace the original one - %sselect from site "
-"images%s"
-msgstr ""
-"Defina a imagem que irá substituir a original - %sselecione entre as imagens "
-"do site%s"
+msgid "Define the image that will replace the original one - %sselect from site images%s"
+msgstr "Defina a imagem que irá substituir a original - %sselecione entre as imagens do site%s"
 
 #: traits/admin.php:507
 msgid "Replacement URL"

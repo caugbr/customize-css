@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Customize CSS
- * Description: Customize CSS of any part of your site
+ * Description: Customize CSS is a plugin that allows specific users to edit layout details in predefined areas of your site, directly from the frontend.
  * Version: 1.0
  * Author: Cau Guanabara
  * Author URI: https://cauguanabara.com.br/dev
