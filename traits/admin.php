@@ -43,12 +43,104 @@ trait CcssAdmin {
     }
 
     /**
+     * Buttons
+     *
+     * @return void
+     */
+    public function reposition_buttons() {
+        $edit_button = get_option("ccss_edit_button", false);
+        $save_button = get_option("ccss_save_button", false);
+        if ($edit_button || $save_button) {
+            $css = "";
+            if ($edit_button) {
+                $css .= "a.edit-page, a.edit-page:hover { {$edit_button} } ";
+            }
+            if ($save_button) {
+                $css .= "a.save-css, a.save-css:hover { {$save_button} }";
+            }
+            add_action("wp_print_footer_scripts", function() use($css) {
+                print '<style>' . $css . '</style>';
+            });
+        }
+    }
+
+    /**
      * Admin page - rules list
      *
      * @return void
      */
     public function admin_page_config() {
-        print "Oi";
+        global $f_inputs;
+        $msg = "";
+        if (isset($_POST['ccss_nonce_field'])) {
+            check_admin_referer('ccss_nonce_action', 'ccss_nonce_field');
+            update_option("ccss_edit_button", $_POST['edit_button']);
+            update_option("ccss_save_button", $_POST['save_button']);
+            update_option("ccss_image_filter", $_POST['image_filter']);
+            update_option("ccss_image_cfg", $_POST['image_cfg'] ?? []);
+            $msg = __('Settings successfully saved!', 'ccss');
+        }
+        $edit_button = get_option("ccss_edit_button", "top: 20px; right: 20px;");
+        $save_button = get_option("ccss_save_button", "top: 20px; right: 54px;");
+        $image_filter = get_option("ccss_image_filter", "");
+        $image_cfg = get_option("ccss_image_cfg", []);
+        ?>
+        <div class="wrap">
+            <h1 class="wp-heading-inline">
+                <?php _e('Customize CSS settings', 'ccss'); ?>
+            </h1>
+            <?php if (!empty($msg)) { print "<div class='notice updated'><p>{$msg}</p></div>"; } ?>
+
+            <form method="post" action="" class="reaction-form">
+                <h3><?php _e("Buttons", "ccss"); ?></h3>
+                <p><?php _e("You can set the position of our buttons to prevent interference with your site's layout.", "ccss"); ?></p>
+                <?php
+                    $this->position_fields(
+                        "edit_button", 
+                        __("Edit Button Position", "ccss"), 
+                        __("Set the position of the 'Edit Page' button (in pixels).", "ccss"),
+                        $edit_button
+                    );
+                    $this->position_fields(
+                        "save_button", 
+                        __("Save Button Position", "ccss"), 
+                        __("Set the position of the 'Save Page' button (in pixels).", "ccss"),
+                        $save_button
+                    );
+                ?>
+                <h3><?php _e("Image Frame on the Frontend", "ccss"); ?></h3>
+                <p><?php _e("You can define rules for how the Image Frame behaves on the frontend.", "ccss"); ?></p>
+                <?php
+                    $f_inputs->input_line("select", [
+                        "id" => "image_filter",
+                        "name" => "image_filter",
+                        "value" => $image_filter,
+                        "options" => [
+                            "all_images" => __("All available images", "ccss"),
+                            "own_images" => __("Only images uploaded by the editor", "ccss")
+                        ],
+                        "description" => __("Set the filter for which images the editor can view in the frontend", 'ccss'),
+                    ], __("Image Filter", 'ccss'));
+
+                    $f_inputs->input_line("checkbox", [
+                        "id" => "image_cfg",
+                        "name" => "image_cfg[]",
+                        "value" => $image_cfg,
+                        "options" => [
+                            "delete" => __("Delete images", "ccss"),
+                            "edit" => __("Edit images", "ccss"),
+                            "upload" => __("Upload images", "ccss")
+                        ],
+                        "description" => __("Set user permissions for images in the frontend", 'ccss'),
+                    ], __("Permissions", 'ccss'));
+                    
+                    wp_nonce_field('ccss_nonce_action', 'ccss_nonce_field');
+
+                    submit_button(__('Save settings', 'ccss'), 'primary', 'ccss_save');
+                ?>
+            </form>
+        </div>
+        <?php
     }
 
     /**
@@ -420,7 +512,7 @@ trait CcssAdmin {
         <?php
     }
 
-    public function prev_next($prev = true, $next = true) {
+    private function prev_next($prev = true, $next = true) {
         $htm = "<div class=\"prev-next\">\n";
         if ($prev) {
             $htm .= "<button class=\"prev-tab button button-secondary\">" . __("&laquo; Previous", 'ccss') . "</button>\n";
@@ -432,5 +524,38 @@ trait CcssAdmin {
         }
         $htm .= "</div>\n";
         print $htm;
+    }
+
+    /**
+     * Admin page - rules list
+     *
+     * @return void
+     */
+    private function position_fields($name, $label, $desc = '', $value = '') {
+        ?>
+        <div class="position formline">
+            <label for="<?php print $name; ?>_prop_x"><?php print $label; ?></label>
+            <div class="input">
+                <div class="line">
+                    <select id="<?php print $name; ?>_prop_x">
+                        <option value="left"><?php _e("Left", "ccss"); ?></option>
+                        <option value="right"><?php _e("Right", "ccss"); ?></option>
+                    </select>
+                    <input type="number" id="<?php print $name; ?>_x">
+                    <div class="sufix">px</div>
+                </div>
+                <div class="line">
+                    <select id="<?php print $name; ?>_prop_y">
+                        <option value="top"><?php _e("Top", "ccss"); ?></option>
+                        <option value="bottom"><?php _e("Bottom", "ccss"); ?></option>
+                    </select>
+                    <input type="number" id="<?php print $name; ?>_y">
+                    <div class="sufix">px</div>
+                </div>
+                <div class="description"><?php print $desc; ?></div>
+            </div>
+            <input type="hidden" name="<?php print $name; ?>" value="<?php print $value; ?>">
+        </div>
+        <?php
     }
 }

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Customize CSS\n"
-"POT-Creation-Date: 2025-02-10 08:32-0300\n"
-"PO-Revision-Date: 2025-02-10 08:35-0300\n"
+"POT-Creation-Date: 2025-02-11 21:38-0300\n"
+"PO-Revision-Date: 2025-02-12 07:59-0300\n"
 "Last-Translator: \n"
 "Language-Team: Cau Guanabara\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: .git\n"
 
-#: admin-table.php:26 traits/admin.php:400
+#: admin-table.php:26 traits/admin.php:525
 msgid "Rule name"
 msgstr "Nome da regra"
 
@@ -41,163 +41,163 @@ msgstr "Não será possível desfazer. Tem certeza?"
 msgid "Delete"
 msgstr "Remover"
 
-#: customize-css.php:112
+#: customize-css.php:122
 msgid "Selector"
 msgstr "Seletor"
 
-#: customize-css.php:113 traits/admin.php:333
+#: customize-css.php:123 traits/admin.php:458
 msgid "Description"
 msgstr "Descrição"
 
-#: customize-css.php:114 traits/admin.php:340
+#: customize-css.php:124 traits/admin.php:465
 msgid "Properties"
 msgstr "Propriedades"
 
-#: customize-css.php:115 traits/admin.php:192 traits/admin.php:201
-#: traits/admin.php:202 traits/admin.php:281
+#: customize-css.php:125 traits/admin.php:317 traits/admin.php:326
+#: traits/admin.php:327 traits/admin.php:406
 msgid "Post types"
 msgstr "Tipos de post"
 
-#: customize-css.php:116
+#: customize-css.php:126
 msgid "There is no post types selected"
 msgstr "Não há posts selecionados"
 
-#: customize-css.php:117 traits/admin.php:229
+#: customize-css.php:127 traits/admin.php:354
 msgid "Taxonomies"
 msgstr "Taxonomias"
 
-#: customize-css.php:118
+#: customize-css.php:128
 msgid "There is no taxonomies selected"
 msgstr "Não há taxonomias selecionadas"
 
-#: customize-css.php:119
+#: customize-css.php:129
 msgid "Taxonomy queries relation"
 msgstr "Relação entre as queries de taxonomia"
 
-#: customize-css.php:120
+#: customize-css.php:130
 msgid "Authorized editors"
 msgstr "Editores autorizados"
 
-#: customize-css.php:121 traits/admin.php:282
+#: customize-css.php:131 traits/admin.php:407
 msgid "User roles"
 msgstr "Níveis de usuário"
 
-#: customize-css.php:122
+#: customize-css.php:132
 msgid "No user roles defined"
 msgstr "Nenhum nível definido"
 
-#: customize-css.php:123
+#: customize-css.php:133
 msgid "Custom user field"
 msgstr "Campo personalizado"
 
-#: customize-css.php:124
+#: customize-css.php:134
 msgid "No custom user field was set"
 msgstr "Nenhum campo personalizado definido"
 
-#: customize-css.php:125
+#: customize-css.php:135
 msgid "Custom user field value"
-msgstr "Valor do campo personalizado"
+msgstr "Valor do campo"
 
-#: customize-css.php:126
+#: customize-css.php:136
 msgid "No custom user field value was set"
 msgstr "Nenhum valor definido para o campo personalizado"
 
-#: customize-css.php:127 traits/admin.php:306
+#: customize-css.php:137 traits/admin.php:431
 msgid "Users"
 msgstr "Usuários"
 
-#: customize-css.php:128
+#: customize-css.php:138
 msgid "No users selected"
 msgstr "Nenhum usuário selecionado"
 
-#: customize-css.php:129 traits/admin.php:181
+#: customize-css.php:139 traits/admin.php:306
 msgid "Editable areas"
 msgstr "Áreas editáveis"
 
-#: customize-css.php:130
+#: customize-css.php:140
 msgid "No editable areas defined"
 msgstr "Nenhuma área editável definida"
 
-#: customize-css.php:131 traits/admin.php:253
+#: customize-css.php:141 traits/admin.php:378
 msgid "Locations"
 msgstr "Locais"
 
-#: customize-css.php:132
+#: customize-css.php:142
 msgid "No locations defined"
 msgstr "Nenhum local definido"
 
-#: customize-css.php:133
+#: customize-css.php:143
 msgid "Do you really want to remove this item?"
 msgstr "Deseja realmente remover este item?"
 
-#: customize-css.php:134
+#: customize-css.php:144
 msgid "Pages"
 msgstr "Páginas"
 
-#: customize-css.php:135
+#: customize-css.php:145
 msgid "No specific pages set"
 msgstr "Nenhuma página definida"
 
-#: customize-css.php:136
+#: customize-css.php:146
 msgid "There is no content (post types, pages, taxonomies) selected to apply"
 msgstr "Não há conteúdos (tipos de post, páginas, taxonomias) selecionados"
 
-#: customize-css.php:137
+#: customize-css.php:147
 msgid "The is no place (lists, single, sub pages) defined to show"
 msgstr ""
 "Nenhum local selecionado (listas, publicações, subpáginas) para a exibição"
 
-#: customize-css.php:138
+#: customize-css.php:148
 msgid "There are no users (roles, custom field, specific users) set to edit"
 msgstr ""
 "Não há usuários (níveis, campos personalizados, usuários específicos) "
 "selecionados para editar"
 
-#: customize-css.php:139
+#: customize-css.php:149
 msgid "Give a name for this rule"
 msgstr "Dê um nome para esta regra"
 
-#: customize-css.php:140
+#: customize-css.php:150
 msgid "Custom post field"
 msgstr "Campo personalizado"
 
-#: customize-css.php:141
+#: customize-css.php:151
 msgid "No custom post field was set"
 msgstr "Nenhum campo personalizado definido"
 
-#: customize-css.php:142
+#: customize-css.php:152
 msgid "Custom post field value"
-msgstr "Valor do campo personalizado"
+msgstr "Valor do campo"
 
-#: customize-css.php:143
+#: customize-css.php:153
 msgid "No custom post field value was set"
 msgstr "Nenhum valor definido para o campo personalizado"
 
-#: customize-css.php:144
+#: customize-css.php:154
 msgid "Choose an image to replace"
 msgstr "Escolha uma imagem para ser substituída"
 
-#: customize-css.php:145 traits/front.php:126
+#: customize-css.php:155 traits/front.php:138
 msgid "Choose a replacement image"
 msgstr "Escolha uma imagem para substituir"
 
-#: customize-css.php:146 traits/front.php:125
+#: customize-css.php:156 traits/front.php:137
 msgid "Select image"
 msgstr "Escolha uma imagem"
 
-#: customize-css.php:147
+#: customize-css.php:157
 msgid "Replaced images"
 msgstr "Substituir imagens"
 
-#: customize-css.php:148
+#: customize-css.php:158
 msgid "There is no replaced images"
 msgstr "Não há imagens substituíveis"
 
-#: customize-css.php:309
+#: customize-css.php:319
 msgid "Rule successfully saved."
 msgstr "Regra salva com sucesso."
 
-#: customize-css.php:310
+#: customize-css.php:320
 msgid "The rule could not be saved."
 msgstr "A regra não pôde ser salva."
 
@@ -209,13 +209,13 @@ msgstr "Uploads não são permitidos."
 msgid "Customize CSS"
 msgstr ""
 
-#: traits/admin.php:21 traits/admin.php:22 traits/admin.php:86
+#: traits/admin.php:21 traits/admin.php:22 traits/admin.php:211
 msgid "Customization rules"
 msgstr "Regras de customização"
 
 #: traits/admin.php:29 traits/admin.php:30
 msgid "Add custom rule"
-msgstr "Adiciopnar regra"
+msgstr "Adicionar regra"
 
 #: traits/admin.php:37
 msgid "Customization Settings"
@@ -225,260 +225,362 @@ msgstr "Configurações de customização"
 msgid "Settings"
 msgstr "Configurações"
 
-#: traits/admin.php:66
+#: traits/admin.php:81
+msgid "Settings successfully saved!"
+msgstr "Configurações salvas com sucesso."
+
+#: traits/admin.php:90
+msgid "Customize CSS settings"
+msgstr "Configurações do Constumize CSS"
+
+#: traits/admin.php:95
+msgid "Buttons"
+msgstr "Botões"
+
+#: traits/admin.php:96
+msgid ""
+"You can set the position of our buttons to prevent interference with your "
+"site's layout."
+msgstr ""
+"Você pode definir a posição dos nossos botões para se ajustar ao layout do "
+"seu site."
+
+#: traits/admin.php:100
+msgid "Edit Button Position"
+msgstr "Botão Editar página"
+
+#: traits/admin.php:101
+msgid "Set the position of the 'Edit Page' button (in pixels)."
+msgstr "Defina a posição do botão Editar (em pixels)"
+
+#: traits/admin.php:106
+msgid "Save Button Position"
+msgstr "Botão Salvar mudanças"
+
+#: traits/admin.php:107
+msgid "Set the position of the 'Save Page' button (in pixels)."
+msgstr "Defina a posição do botão Salvar (em pixels)"
+
+#: traits/admin.php:111
+msgid "Image Frame on the Frontend"
+msgstr "Seleção de imagens"
+
+#: traits/admin.php:112
+msgid "You can define rules for how the Image Frame behaves on the frontend."
+msgstr ""
+"Você pode definir como a janela de seleção de imagens se comporta no front-"
+"end."
+
+#: traits/admin.php:119
+msgid "All available images"
+msgstr "Todas as imagens"
+
+#: traits/admin.php:120
+msgid "Only images uploaded by the editor"
+msgstr "Só imagens enviadas pelo editor"
+
+#: traits/admin.php:122
+msgid "Set the filter for which images the editor can view in the frontend"
+msgstr ""
+"Defina o filtro para selecionar as imagens que serão exibidas no front-end"
+
+#: traits/admin.php:123
+msgid "Image Filter"
+msgstr "Filtro"
+
+#: traits/admin.php:130
+msgid "Delete images"
+msgstr "Excluir imagens"
+
+#: traits/admin.php:131
+msgid "Edit images"
+msgstr "Editar imagens"
+
+#: traits/admin.php:132
+msgid "Upload images"
+msgstr "Enviar imagens"
+
+#: traits/admin.php:134
+msgid "Set user permissions for images in the frontend"
+msgstr "Defina as permissões do usuário com as imagens no front-end"
+
+#: traits/admin.php:135
+msgid "Permissions"
+msgstr "Permissões"
+
+#: traits/admin.php:139
+msgid "Save settings"
+msgstr "Salvar configurações"
+
+#: traits/admin.php:158
+msgid "Left"
+msgstr "Esquerda"
+
+#: traits/admin.php:159
+msgid "Right"
+msgstr "Direita"
+
+#: traits/admin.php:166
+msgid "Top"
+msgstr "Acima"
+
+#: traits/admin.php:167
+msgid "Bottom"
+msgstr "Embaixo"
+
+#: traits/admin.php:191
 msgid "Invalid nonce. Unauthorized action."
 msgstr "Nonce inválido. Ação não autorizada."
 
-#: traits/admin.php:69
+#: traits/admin.php:194
 msgid "Customization rule successfully removed!"
 msgstr "Regra de customização removida com sucesso!"
 
-#: traits/admin.php:71
+#: traits/admin.php:196
 msgid "The rule could not be removed"
 msgstr "A regra não pôde ser removida"
 
-#: traits/admin.php:88
+#: traits/admin.php:213
 msgid "Add new rule"
 msgstr "Adicionar nova regra"
 
-#: traits/admin.php:110
+#: traits/admin.php:235
 msgid "This page depends on Form inputs plugin. Please install it."
 msgstr "Essa página depende do plugin Form Inputs. Por favor instale ele."
 
-#: traits/admin.php:131
+#: traits/admin.php:256
 msgid "Customization rule successfully added!"
 msgstr "Regra de customização adicionada com sucesso!"
 
-#: traits/admin.php:135
+#: traits/admin.php:260
 msgid "Customization rule successfully updated!"
 msgstr "Regra de customização atualizada com sucesso!"
 
-#: traits/admin.php:162 traits/admin.php:406
+#: traits/admin.php:287 traits/admin.php:531
 msgid "Update customization rule"
 msgstr "Atualizar regra de customização"
 
-#: traits/admin.php:164
+#: traits/admin.php:289
 msgid "Create new customization rule"
 msgstr "Criar nova regra de customização"
 
-#: traits/admin.php:175
+#: traits/admin.php:300
 msgid "Content types"
 msgstr "Tipos de conteúdo"
 
-#: traits/admin.php:178
+#: traits/admin.php:303
 msgid "Authorize users"
 msgstr "Autorizar usuários"
 
-#: traits/admin.php:184
+#: traits/admin.php:309
 msgid "Replace images"
 msgstr "Substituir imagens"
 
-#: traits/admin.php:187
+#: traits/admin.php:312
 msgid "Generate rule"
 msgstr "Criar regra"
 
-#: traits/admin.php:201 traits/admin.php:241
+#: traits/admin.php:326 traits/admin.php:366
 #, php-format
 msgid "Select the %s you want to make editable"
 msgstr "Selecione as %s que deseja tornar editáveis"
 
-#: traits/admin.php:211
+#: traits/admin.php:336
 msgid "Select specific pages to apply this rule"
 msgstr "Selecione páginas específicas para aplicar esta regra"
 
-#: traits/admin.php:212
+#: traits/admin.php:337
 msgid "Specific pages"
 msgstr "Páginas específicas"
 
-#: traits/admin.php:218
+#: traits/admin.php:343
 msgid "Only posts that have this custom field set"
 msgstr "Somente posts que possuam este campo personalizado definido"
 
-#: traits/admin.php:219
+#: traits/admin.php:344
 msgid "Custom field"
 msgstr "Campo personalizado"
 
-#: traits/admin.php:225 traits/admin.php:295
+#: traits/admin.php:350 traits/admin.php:420
 msgid "The custom field must have this value (optional)"
 msgstr "O campo personalizado deve ter este valor (opcional)"
 
-#: traits/admin.php:226 traits/admin.php:296
+#: traits/admin.php:351 traits/admin.php:421
 msgid "Custom field value"
-msgstr "Valor do campo personalizado"
+msgstr "Valor do campo"
 
-#: traits/admin.php:250
+#: traits/admin.php:375
 msgid "The relation between multiple taxonomy queries"
 msgstr "Releção entre múltiplas queries de taxonomia"
 
-#: traits/admin.php:251
+#: traits/admin.php:376
 msgid "Tax queries relation"
-msgstr "Relação entre as tax queries"
+msgstr "Relação entre as queries"
 
-#: traits/admin.php:261
+#: traits/admin.php:386
 msgid "Post lists"
 msgstr "Listas de posts"
 
-#: traits/admin.php:262
+#: traits/admin.php:387
 msgid "Single posts"
 msgstr "Página do post"
 
-#: traits/admin.php:263
+#: traits/admin.php:388
 msgid "Sub pages"
 msgstr "Subpáginas"
 
-#: traits/admin.php:265
+#: traits/admin.php:390
 msgid "Where these changes should be applied?"
 msgstr "Aonde essas mudanças devem ser aplicadas?"
 
-#: traits/admin.php:266
+#: traits/admin.php:391
 msgid "Apply to"
 msgstr "Aplicar em"
 
-#: traits/admin.php:272
+#: traits/admin.php:397
 msgid "Users that can edit"
 msgstr "Usuários que podem editar"
 
-#: traits/admin.php:281
+#: traits/admin.php:406
 msgid "Select the user levels that can edit"
 msgstr "Selecione os níveis de usuário que poderão editar"
 
-#: traits/admin.php:288
+#: traits/admin.php:413
 msgid "Only users that have this custom field can edit"
 msgstr "Somente usuários com este campo personalizado podem editar"
 
-#: traits/admin.php:289
+#: traits/admin.php:414
 msgid "User custom field"
 msgstr "Campo personalizado"
 
-#: traits/admin.php:305
+#: traits/admin.php:430
 msgid "Select specific users to edit this rule"
 msgstr "Selecione usuários específicos para editar esta regra"
 
-#: traits/admin.php:313
+#: traits/admin.php:438
 msgid "Editable page areas"
 msgstr "Áreas editáveis"
 
-#: traits/admin.php:314
+#: traits/admin.php:439
 msgid "No areas yet"
 msgstr "Nenhuma área ainda"
 
-#: traits/admin.php:317
+#: traits/admin.php:442
 msgid "Add area"
 msgstr "Adicionar área"
 
-#: traits/admin.php:324 traits/admin.php:347
+#: traits/admin.php:449 traits/admin.php:472
 msgid "Add editable area"
 msgstr "Adicionar área editável"
 
-#: traits/admin.php:328
+#: traits/admin.php:453
 msgid ""
 "Insert a CSS selector that gets the area of the page that will be editable"
 msgstr "Digite um seletor CSS para pegar a área da página que será editável"
 
-#: traits/admin.php:329
+#: traits/admin.php:454
 msgid "CSS selector"
 msgstr "Seletor CSS"
 
-#: traits/admin.php:332
+#: traits/admin.php:457
 msgid "Description of this area"
 msgstr "Descrição desta área"
 
-#: traits/admin.php:338
+#: traits/admin.php:463
 msgid "Check all"
 msgstr "Marcar todos"
 
-#: traits/admin.php:339
+#: traits/admin.php:464
 msgid "Select the properties that can be used in this rule"
 msgstr "Selecione as propriedades que poderão ser usadas nesta área"
 
-#: traits/admin.php:344 traits/admin.php:386 traits/front.php:173
+#: traits/admin.php:469 traits/admin.php:511 traits/front.php:186
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: traits/admin.php:354
+#: traits/admin.php:479
 msgid "Image replacements"
 msgstr "Imagens substituíveis"
 
-#: traits/admin.php:355
+#: traits/admin.php:480
 msgid "No replacements yet"
 msgstr "Nenhuma substituição ainda"
 
-#: traits/admin.php:358
+#: traits/admin.php:483
 msgid "Add replacement"
 msgstr "Adicionar substituição"
 
-#: traits/admin.php:365 traits/admin.php:389
+#: traits/admin.php:490 traits/admin.php:514
 msgid "Add image replacement"
 msgstr "Adicionar imagem substituível"
 
-#: traits/admin.php:370
+#: traits/admin.php:495
 #, php-format
 msgid "Insert some image URL - %sselect from site images%s"
-msgstr ""
-"Insira a URL de alguma imagem - %sselecione entre as imagens do site%s"
+msgstr "Insira a URL de alguma imagem - %sselecione entre as imagens do site%s"
 
-#: traits/admin.php:374
+#: traits/admin.php:499
 msgid "Original URL"
 msgstr "URL original"
 
-#: traits/admin.php:378
+#: traits/admin.php:503
 #, php-format
 msgid ""
 "Define the image that will replace the original one - %sselect from site "
 "images%s"
 msgstr ""
-"Defina a imagem que irá substituir a original - %sselecione entre as "
-"imagens do site%s"
+"Defina a imagem que irá substituir a original - %sselecione entre as imagens "
+"do site%s"
 
-#: traits/admin.php:382
+#: traits/admin.php:507
 msgid "Replacement URL"
 msgstr "URL substituta"
 
-#: traits/admin.php:395
+#: traits/admin.php:520
 msgid "Review and generate rule"
 msgstr "Conferir e gerar regra"
 
-#: traits/admin.php:409
+#: traits/admin.php:534
 msgid "Create customization rule"
 msgstr "Criar regra de customização"
 
-#: traits/admin.php:426
+#: traits/admin.php:551
 msgid "&laquo; Previous"
 msgstr "&laquo; Anterior"
 
-#: traits/admin.php:431
+#: traits/admin.php:556
 msgid "Next &raquo;"
 msgstr "Próxima &raquo;"
 
-#: traits/front.php:56
+#: traits/front.php:67
 msgid "Editable"
 msgstr "Editável"
 
-#: traits/front.php:120
+#: traits/front.php:132
 msgid "Edit page"
 msgstr "Editar página"
 
-#: traits/front.php:121
+#: traits/front.php:133
 msgid "Editing rule"
 msgstr "Editando regra"
 
-#: traits/front.php:122
+#: traits/front.php:134
 #, php-format
 msgid "Editing %s"
 msgstr "Editando %s"
 
-#: traits/front.php:123
+#: traits/front.php:135
 msgid "Save changes"
 msgstr "Salvar mudanças"
 
-#: traits/front.php:124
+#: traits/front.php:136
 msgid "Replaceable image"
 msgstr "Imagem substituível"
 
-#: traits/front.php:174
+#: traits/front.php:187
 msgid "Apply"
 msgstr "Aplicar"
 
-#: traits/front.php:290
+#: traits/front.php:303
 msgid "Clear"
 msgstr "Limpar"

@@ -22,7 +22,6 @@ class Admin_Table extends WP_List_Table {
      */
     public function get_columns() {
         return [
-            // 'cb' => '<input type="checkbox" />',
             'rule_name' => __("Rule name", "ccss"),
             'created_at' => __("Created at", "ccss"),
             'actions' => __("Actions", "ccss"),
@@ -113,19 +112,5 @@ class Admin_Table extends WP_List_Table {
      */
     protected function column_default($item, $column_name) {
         return $item[$column_name] ?? '';
-    }
-
-    /**
-     * Coluna de checkbox.
-     */
-    protected function column_cb($item) {
-        return sprintf('<input type="checkbox" name="rule[]" value="%d" />', $item['id']);
-    }
-
-    /**
-     * Coluna de ações personalizada.
-     */
-    protected function column_actions($item) {
-        return $item['actions'];
     }
 }

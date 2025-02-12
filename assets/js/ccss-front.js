@@ -18,12 +18,13 @@ class CcssFront {
                 el.setAttribute('data-rule_id', rule.id);
             });
             if  (rule.rule_data.images) {
-                rule.rule_data.images.forEach(img => {
+                rule.rule_data.images.forEach((img, ind) => {
                     const el = $single(this.imgSelector(img.image));
                     if (el) {
                         el.classList.add('editing-image');
                         el.title = ccssStr.replaceableImage;
                         el.setAttribute('data-rule_id', rule.id);
+                        el.setAttribute('data-index', ind);
                         if (img.replacement) {
                             el.removeAttribute('srcset');
                             el.removeAttribute('sizes');
@@ -118,13 +119,23 @@ class CcssFront {
 
                 mediaUploader.on('open', () => {
                     setTimeout(() => {
-                        let uploadTab = document.querySelector('#menu-item-upload');
-                        if (uploadTab) {
-                            uploadTab.remove();
+                        if (!ccssStr.imgCfg.includes('upload')) {
+                            let uploadTab = document.querySelector('#menu-item-upload');
+                            if (uploadTab) {
+                                uploadTab.remove();
+                            }
                         }
                         const removeLinks = () => {
-                            const links = document.querySelectorAll('.edit-attachment, .delete-attachment');
-                            links.forEach(el => el.remove());
+                            const rem = selector => {
+                                const links = document.querySelectorAll(selector);
+                                links.forEach(el => el.remove());
+                            };
+                            if (!ccssStr.imgCfg.includes('edit')) {
+                                rem('.edit-attachment');
+                            }
+                            if (!ccssStr.imgCfg.includes('delete')) {
+                                rem('.delete-attachment');
+                            }
                         };
                         let observer = new MutationObserver(removeLinks);
                         observer.observe(document.body, { childList: true, subtree: true });
@@ -148,7 +159,6 @@ class CcssFront {
                 nimg.replacement = attachment.url;
                 this.images[ind] = nimg;
                 img.src = attachment.url;
-                img.dataset.index = ind;
                 this.showSaveButton();
             };
             openMediaUploader(img);
@@ -291,7 +301,6 @@ class CcssFront {
     // Send changes to server
     saveRule() {
         console.log(`RULE: ${this.rule}`);
-        // console.log(this.style); return new Promise(resolve => {});
         return new Promise(resolve => {
             ajax(ccssStr.ajaxurl, { 
                 action: 'save_rule',

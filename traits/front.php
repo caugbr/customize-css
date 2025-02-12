@@ -49,7 +49,18 @@ trait CcssFront {
     
     public function add_front_assets($rule) {
         include_once CCSS_PATH . "frontend-media.php";
-        restrict_frontend_media();
+        $image_filter = get_option("ccss_image_filter", '');
+        $filter = null;
+        if (!empty($image_filter)) {
+            if ($image_filter == 'own_images') {
+                $filter = function($query) {
+                    $user_id = get_current_user_id();
+                    $query['author'] = $user_id;
+                    return $query;
+                };
+            }
+        }
+        restrict_frontend_media($filter);
         wp_enqueue_media();
         wp_enqueue_style('dashicons');
         wp_enqueue_style('ccss-css', CCSS_URL . 'assets/css/ccss-front.css', [], $this->version);
@@ -100,13 +111,13 @@ trait CcssFront {
         }
         if (!empty($rule['rule_data']['images'])) {
             $htm .= "<script>\ndocument.addEventListener('DOMContentLoaded', () => {\n";
-            foreach ($rule['rule_data']['images'] as $img) {
+            foreach ($rule['rule_data']['images'] as $index => $img) {
                 if (!empty($img['replacement'])) {
                     $url = explode(".", $img['image']);
                     array_pop($url);
                     $url = join('.', $url);
                     $htm .= "    const el = \$single('img[src^=\"{$url}\"]');\n";
-                    $htm .= "    if (el) { el.removeAttribute('srcset'); el.removeAttribute('sizes'); el.src = '{$img['replacement']}'; }\n";
+                    $htm .= "    if (el) { el.removeAttribute('srcset'); el.removeAttribute('sizes'); el.src = '{$img['replacement']}'; el.dataset.ind = '{$index}'; }\n";
                 }
             }
             $htm .= "});\n</script>\n";
@@ -116,6 +127,7 @@ trait CcssFront {
     }
 
     public function localize_data($rule) {
+        $image_cfg = get_option("ccss_image_cfg", []);
         $data = [
             "editButtonTitle" => __("Edit page", "ccss"),
             "editorTitle" => __("Editing rule", "ccss"),
@@ -125,6 +137,7 @@ trait CcssFront {
             "selectImage" => __("Select image", "ccss"),
             "chooseReplacement" => __("Choose a replacement image", "ccss"),
             "ajaxurl" => admin_url('admin-ajax.php'),
+            "imgCfg" => $image_cfg
         ];
         return $data;
     }
@@ -348,26 +361,4 @@ trait CcssFront {
         $htm .= "</select></div>\n";
         return $htm;
     }
-    
-    // public function make_check_list($name, $arr, $id = '') {
-    //     if (empty($id)) {
-    //         $id = $name;
-    //     }
-    //     $v = function ($v) { return htmlspecialchars($v); };
-    //     $htm = "\n<div class=\"check-list\">\n";
-    //     foreach ($arr as $ind => $value) {
-    //         $label = '';
-    //         if (is_int($ind) && is_string($value)) {
-    //             $label = $this->turn_legible($value);
-    //         }
-    //         if (is_string($ind) && is_string($value)) {
-    //             $label = $value;
-    //             $value = $ind;
-    //         }
-    //         $htm .= "<label><input type=\"checkbox\" value=\"" . $v($value) . "\"> " . $v($label) . "</label>\n";
-    //     }
-    //     $htm .= "</div>\n";
-    //     return $htm;
-    // }
-    
 }

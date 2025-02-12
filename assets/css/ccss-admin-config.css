@@ -1,0 +1,44 @@
+.position {
+    margin-bottom: 1rem;
+}
+
+.position label {
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.position .line {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    height: 26px;
+    margin: 0.2rem auto;
+}
+
+.position .input select {
+    vertical-align: middle;
+    height: 26px;
+    width: 70px !important;
+}
+
+.position .description {
+    color: #999;
+    font-style: italic;
+}
+
+.position .input input {
+    /* border: 0;
+    background-color: transparent;
+    padding: 0; */
+    height: 26px;
+    width: 4em !important;
+}
+
+.position .sufix {
+    height: 30px;
+    width: 30px;
+    /* background-color: #ddd; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

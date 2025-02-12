@@ -25,7 +25,7 @@ class CustomizeCSS {
 
     use CcssAdmin, CcssFront;
 
-    private $version = '1.0.1';
+    private $version = '1.0.2';
 
     public $font_list = [
         'Arial' => 'Arial, sans-serif',
@@ -99,14 +99,21 @@ class CustomizeCSS {
         add_action('init', function() {
             load_plugin_textdomain('ccss', false, dirname(plugin_basename(__FILE__)) . '/langs'); 
         });
+        if (!is_admin()) {
+            $this->reposition_buttons();
+        }
     }
-
+    
     /**
      * Load all assets
      *
      * @return void
      */
     public function load_admin_assets($hook) {
+        if ($hook == 'customize-css_page_ccss-config') {
+            wp_enqueue_style('ccss-css', CCSS_URL . 'assets/css/ccss-admin-config.css', [], $this->version);
+            wp_enqueue_script('ccss-js', CCSS_URL . 'assets/js/ccss-admin-config.js', [], $this->version, true);
+        }
         if ($hook != 'customize-css_page_ccss-add-rule') {
             return;
         }
