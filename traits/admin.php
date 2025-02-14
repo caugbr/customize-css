@@ -357,7 +357,7 @@ trait CcssAdmin {
                                 "description" => __("Where these changes should be applied?", 'ccss'),
                             ], __("Apply to", 'ccss'));
 
-                            $this->prev_next();
+                            $this->prev_next(false);
                             ?>
                         </div>
                         <div class="tab-content" data-tab="2">

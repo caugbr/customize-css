@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Customize CSS\n"
 "POT-Creation-Date: 2025-02-11 21:38-0300\n"
-"PO-Revision-Date: 2025-02-12 08:08-0300\n"
+"PO-Revision-Date: 2025-02-13 10:46-0300\n"
 "Last-Translator: \n"
 "Language-Team: Cau Guanabara\n"
 "Language: pt_BR\n"
@@ -57,7 +57,8 @@ msgstr "Descrição"
 msgid "Properties"
 msgstr "Propriedades"
 
-#: customize-css.php:125 traits/admin.php:317 traits/admin.php:326 traits/admin.php:327 traits/admin.php:406
+#: customize-css.php:125 traits/admin.php:317 traits/admin.php:326
+#: traits/admin.php:327 traits/admin.php:406
 msgid "Post types"
 msgstr "Tipos de post"
 
@@ -239,7 +240,7 @@ msgstr "Botões"
 
 #: traits/admin.php:96
 msgid "You can set the position of our buttons to prevent interference with your site's layout."
-msgstr "Você pode definir a posição dos nossos botões para se ajustar ao layout do seu site."
+msgstr "Você pode definir a posição dos nossos botões para se ajustarem ao layout do seu site."
 
 #: traits/admin.php:100
 msgid "Edit Button Position"

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".position").forEach(positionField => {
+    document.querySelectorAll(".formline.position").forEach(positionField => {
         const hiddenInput = positionField.querySelector("input[type=hidden]");
         const selectX = positionField.querySelector("select[id$='_prop_x']");
         const inputX = positionField.querySelector("input[id$='_x']");

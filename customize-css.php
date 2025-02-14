@@ -20,6 +20,8 @@ define('CCSS_PATH', plugin_dir_path(__FILE__));
 require_once CCSS_PATH . "traits/admin.php";
 require_once CCSS_PATH . "traits/front.php";
 
+require_once CCSS_PATH . "/rzp/require-zip-plugin.php";
+
 
 class CustomizeCSS {
 
@@ -91,14 +93,31 @@ class CustomizeCSS {
     public function __construct() {
         global $wpdb;
         $this->table = $wpdb->prefix . 'customization_rules';
+
+        $require_zip_plugin = new RequireZipPlugin();
+        $require_zip_plugin->require(
+            'Customize CSS', 
+            'Form inputs', 
+            'https://github.com/caugbr/form-inputs/archive/refs/heads/main.zip', 
+            'form-inputs/form-inputs.php'
+        );
+        $require_zip_plugin->require(
+            'Customize CSS', 
+            'WP Helper', 
+            'https://github.com/caugbr/wp-helper/archive/refs/heads/main.zip', 
+            'wp-helper/wp-helper.php'
+        );
+
         add_action('admin_menu', [$this, 'add_admin_page']);
         add_action('admin_enqueue_scripts', [$this, 'load_admin_assets']);
         add_action('wp_enqueue_scripts', [$this, 'include_css']);
         add_action('wp_ajax_save_rule', [$this, 'save_rule']);
-        register_activation_hook(__FILE__, [$this, 'create_table']);
         add_action('init', function() {
             load_plugin_textdomain('ccss', false, dirname(plugin_basename(__FILE__)) . '/langs'); 
         });
+
+        register_activation_hook(__FILE__, [$this, 'create_table']);
+
         if (!is_admin()) {
             $this->reposition_buttons();
         }
@@ -315,10 +334,10 @@ class CustomizeCSS {
         $data = json_decode(stripslashes($_POST['style']), true);
         $images = json_decode(stripslashes($_POST['images']), true);
         $ret1 = $this->merge_images($_POST['rule_id'], $images);
-        $ret = $this->merge_rule($_POST['rule_id'], $data);
-        $msg = $ret1 || $ret ? __("Rule successfully saved.", "ccss") 
-                             : __("The rule could not be saved.", "ccss");
-        wp_send_json(['error' => (!$ret1 && !$ret), 'message' => $msg]);
+        $ret2 = $this->merge_rule($_POST['rule_id'], $data);
+        $msg = $ret1 || $ret2 ? __("Rule successfully saved.", "ccss") 
+                              : __("The rule could not be saved.", "ccss");
+        wp_send_json(['error' => (!$ret1 && !$ret2), 'message' => $msg]);
     }
    
     public function create_table() {
